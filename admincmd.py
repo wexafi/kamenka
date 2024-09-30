@@ -33,6 +33,10 @@ dp = Dispatcher(bot, storage=MemoryStorage())
 # Глобальная переменная для состояния обработчика сообщений
 enabled = True
 
+@dp.message_handler(commands=['1'])
+async def send_welcome(message: types.Message):
+    await message.answer(f"Привет, {message.from_user.full_name}!\nЯ - бот, а ты пидор.")
+
 ####################################################################################################################
 
 # Админские команды /start_admin и /help_admin.
